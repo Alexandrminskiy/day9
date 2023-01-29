@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { New } from './components/New/New';
+import { User } from './pages/User/User';
 
 const router = createBrowserRouter([
   {
@@ -24,9 +25,9 @@ const router = createBrowserRouter([
     element: <New />,
   },
   {
-    path: "/users",
-    element: <New />,
-  },
+    path: "/users/:userId",
+    element: <User />,
+  }
 ]);
 
 
@@ -34,8 +35,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-1.27

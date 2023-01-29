@@ -1,6 +1,6 @@
 import { Button } from 'antd'; //1
-import { useNavigate } from "react-router-dom"; //1
-import { Table, Tag } from 'antd';
+import { useNavigate, Link } from "react-router-dom"; //1
+import { Table } from 'antd';
 
 const data = [
   {
@@ -38,7 +38,7 @@ function App() {
       key: 'action',
       render: (record) => (
         <div key={record.id} size="middle">
-          <a>Подробнее {record.name}</a>
+          <Link to={`users/${record.id}`}>Подробнее о{record.name}</Link>
         </div>
       ),
     },
@@ -49,7 +49,7 @@ function App() {
       <div>side Rendering</div>
       <div>Hello World 1</div>
       {/* Добавили кнопку переход на другую страницу без обновления 1*/}
-      <Button type="primary" onClick={() => navigate('/new')}>Go new page</Button>
+      <Button type="primary" onClick={handleClick}>Go new page</Button>
 
       <Table pagination={false} columns={columns} dataSource={data} />;
     </div>
